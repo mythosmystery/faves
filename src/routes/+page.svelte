@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms'
 	import type { ActionData } from './$types'
 
 	export let form: ActionData
@@ -6,10 +7,11 @@
 
 <div class="flex flex-col">
 	<h1 class="text-6xl font-bold text-slate-100 mt-24">What's your favorite number?</h1>
-	<form method="post">
+	<form method="post" use:enhance>
 		<input
 			type="number"
 			name="number"
+			autofocus
 			class="text-6xl font-bold p-4 rounded-2xl bg-inherit focus:outline-none border-2 border-slate-100 text-slate-100 mt-24"
 		/>
 	</form>
