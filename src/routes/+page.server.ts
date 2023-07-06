@@ -14,7 +14,7 @@ export const actions = {
 		logEvent({ data: values, feature: 'numbers', action: 'insert' })
 
 		try {
-			await db.insert(numbers).values(values).run()
+			await db.insert(numbers).values(values).execute()
 			return { success: true, body: values }
 		} catch (e) {
 			return { success: false, error: JSON.stringify(e) }

@@ -1,9 +1,9 @@
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core'
 import type { InferModel } from 'drizzle-orm'
+import { mysqlTable, text, int, serial } from 'drizzle-orm/mysql-core'
 
-export const numbers = sqliteTable('numbers', {
-	id: integer('id').primaryKey(),
-	number: integer('number').notNull(),
+export const numbers = mysqlTable('numbers', {
+	id: serial('id').primaryKey(),
+	number: int('number').notNull(),
 	ip: text('ip').notNull(),
 	useragent: text('useragent')
 })

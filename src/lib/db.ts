@@ -1,8 +1,13 @@
-import { drizzle } from 'drizzle-orm/libsql'
-import { createClient } from '@libsql/client'
-import { TURSO_AUTH_TOKEN, TURSO_URL } from '$env/static/private'
+import { drizzle } from 'drizzle-orm/planetscale-serverless'
+import { connect } from '@planetscale/database'
 import * as schema from './schema'
+import { DATABASE_HOST, DATABASE_PASSWORD, DATABASE_USERNAME } from '$env/static/private'
 
-const client = createClient({ url: TURSO_URL, authToken: TURSO_AUTH_TOKEN })
+// create the connection
+const connection = connect({
+	host: DATABASE_HOST,
+	username: DATABASE_USERNAME,
+	password: DATABASE_PASSWORD
+})
 
-export const db = drizzle(client, { schema })
+export const db = drizzle(connection, { schema })

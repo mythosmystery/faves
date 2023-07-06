@@ -8,9 +8,8 @@ export const raise = (message: string) => {
 export default {
 	schema: './src/lib/schema.ts',
 	out: './drizzle',
-	driver: 'turso',
+	driver: 'mysql2',
 	dbCredentials: {
-		url: process.env.TURSO_URL ?? raise('TURSO_URL is not set'),
-		authToken: process.env.TURSO_AUTH_TOKEN ?? raise('TURSO_AUTH_TOKEN is not set')
+		connectionString: process.env.DATABASE_URI ?? raise('DATABASE_URI not set')
 	}
 } satisfies Config
