@@ -7,14 +7,16 @@
 	$: outOfRange = form?.error?.toLowerCase().includes('out of range')
 </script>
 
-<div class="flex flex-col">
-	<h1 class="text-6xl font-bold text-slate-100 mt-24">What's your favorite number?</h1>
+<div class="flex flex-col items-center">
+	<h1 class="md:text-6xl text-center text-4xl font-bold text-blue-200 mt-24">
+		What's your favorite number?
+	</h1>
 	<form method="post" use:enhance>
 		<input
 			type="number"
 			name="number"
 			autofocus
-			class="text-6xl p-4 rounded-2xl bg-inherit focus:outline-none border-2 border-slate-100 text-slate-100 mt-24"
+			class="text-4xl sm:text-6xl lg:text-8xl p-6 md:p-10 xl:p-12 rounded-3xl bg-inherit focus:outline-none border-2 lg:border-4 border-blue-200 text-slate-100 mt-24"
 		/>
 	</form>
 	{#if form && !form?.success}
@@ -24,4 +26,7 @@
 			<p class="text-2xl font-semibold text-red-300 mt-4">Sorry! An error occurred</p>
 		{/if}
 	{/if}
+	<a href="/results" class="text-4xl hover:text-purple-300 font-semibold text-blue-200 mt-8"
+		>See results</a
+	>
 </div>
