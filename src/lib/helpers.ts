@@ -3,5 +3,5 @@ export const raise = (message: string) => {
 }
 
 export const logEvent = (event: { data: Record<string, any>; feature: string; action: string }) => {
-	console.log({ ...event, app: 'faves' })
+	console.log(JSON.stringify({ ...event, app: 'faves' }))
 }
