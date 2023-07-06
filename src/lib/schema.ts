@@ -1,9 +1,9 @@
 import type { InferModel } from 'drizzle-orm'
-import { mysqlTable, text, int, serial } from 'drizzle-orm/mysql-core'
+import { mysqlTable, text, bigint, serial } from 'drizzle-orm/mysql-core'
 
 export const numbers = mysqlTable('numbers', {
 	id: serial('id').primaryKey(),
-	number: int('number').notNull(),
+	number: bigint('number', { mode: 'number' }).notNull(),
 	ip: text('ip').notNull(),
 	useragent: text('useragent')
 })
