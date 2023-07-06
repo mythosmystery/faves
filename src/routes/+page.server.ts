@@ -16,8 +16,8 @@ export const actions = {
 		try {
 			await db.insert(numbers).values(values).execute()
 			return { success: true, body: values }
-		} catch (e) {
-			return { success: false, error: JSON.stringify(e) }
+		} catch (e: any) {
+			return { success: false, error: e.message as string }
 		}
 	}
 } satisfies Actions
