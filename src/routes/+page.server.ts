@@ -7,6 +7,7 @@ export const actions = {
 		const data = await request.formData()
 
 		const number = Number(data.get('number'))
+
 		const ip = getClientAddress()
 		const useragent = request.headers.get('user-agent')
 

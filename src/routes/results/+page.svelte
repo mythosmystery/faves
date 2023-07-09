@@ -4,25 +4,36 @@
 
 	export let data: PageData
 
-	let options = {
+	let barOptions = {
 		chart: {
 			type: 'bar',
 			zoom: { enabled: true }
 		},
 		series: [
 			{
-				name: 'sales',
-				data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+				name: 'count',
+				data: data.counts
 			}
 		],
 		xaxis: {
-			categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+			categories: data.numbers,
 			tickPlacement: 'on'
 		}
+	}
+
+	let pieOptions = {
+		chart: {
+			type: 'donut'
+		},
+		series: data.counts,
+		labels: data.numbers
 	}
 </script>
 
 <div class="flex flex-col h-full w-full items-center">
-	<div class="text-6xl text-white">results</div>
-	<Chart {options} />
+	<div class="text-6xl text-white">most popular numbers!</div>
+	<div class="grid grid-cols-2 gap-4 h-full w-full mt-20">
+		<Chart options={barOptions} />
+		<Chart options={pieOptions} />
+	</div>
 </div>
